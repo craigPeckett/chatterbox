@@ -1,18 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-row>
+    <v-col cols="12">
+      <v-card>
+        <v-card-title class="primary">Messages</v-card-title>
+        <v-card-text>
+          <v-list dense>
+            <v-list-item v-for="(message, index) in messages" :key="index">
+              <v-list-item-content>
+                <v-list-item-title>{{ message.name }}</v-list-item-title>
+                <v-list-item-subtitle>{{
+                  message.content
+                }}</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-card-text>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapState } from "vuex";
 
 export default {
-  name: "Home",
-  components: {
-    HelloWorld
-  }
+  computed: mapState(["messages"])
 };
 </script>
