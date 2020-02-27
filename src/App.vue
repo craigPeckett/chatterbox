@@ -117,7 +117,7 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      socket: io("localhost:3000"),
+      socket: io(),
       name: "",
       message: "",
       dialog: true,
